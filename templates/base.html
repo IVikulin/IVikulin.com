@@ -1,0 +1,141 @@
+{% load staticfiles %}
+{% load thumbnail %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+		<title>{{ about_me.meta_title }}</title>
+		<meta name="author" content="{{ about_me.meta_author }}">
+		<meta name="description" content="{{ about_me.meta_description }}" />
+		<meta name="keywords" content="{{ about_me.meta_keywords }}" />
+		<meta name="news_keywords" content="{{ about_me.meta_keywords }}">
+
+		<link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" />
+
+		<!-- Open Graph data -->
+		<meta property="og:title" content="{{ about_me.meta_title }}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://ivikulin.com/" />
+		<meta property="og:image" content="https://ivikulin.com{% static 'img/card.jpg' %}" />		
+		<meta property="og:description" content="{{ about_me.meta_description }}" /> 
+		<meta property="og:site_name" content="{{ about_me.meta_title }}" />
+		<meta property="og:locale" content="en_US" />
+
+		<style type="text/css">
+			#preloader {
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 2999;
+				width: 100vw;
+				height: 100vh;
+				overflow: visible;
+				background: #fff url('{% static 'img/loader.svg' %}') no-repeat center center;
+			}
+		</style>
+
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+						
+			ga('create', 'UA-16641764-10', 'auto');
+			ga('send', 'pageview');			
+		</script>
+	</head>
+
+	<body>
+		<div id="preloader"></div>
+		
+		<header>
+			<div class="container">
+				<div class="brand">
+					<a class="btn btn-sm" href="#about">Ilya Vikulin</a>
+				</div>
+
+				<nav class="menu">
+					<ul class="list-unstyled" id="menu">
+						<li><a class="btn btn-sm" data-menuanchor="about" href="#about">About</a></li>
+						<li><a class="btn btn-sm" data-menuanchor="works" href="#works">Works</a></li>
+						<li><a class="btn btn-sm" data-menuanchor="contacts" href="#contacts">Contacts</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		
+		<div id="fullpage">
+			<div class="section fp-auto-height about">
+				<div class="content">
+					<h1>{{ about_me.title|safe }}</h1>
+					<div>{{ about_me.description|safe }}</div>
+
+					<h2>Tech Stack:</h2>
+					{% regroup skills by get_group_display as skill_list %}
+					<div>
+						{% for group in skill_list %}
+							<p>
+							    <span>{{ group.grouper }}: </span>
+
+						        {% for skill in group.list %}
+						          <strong>{{ skill.name }}{% if not forloop.last %}, {% endif %}</strong>
+						        {% endfor %}
+							</p>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+
+			<div class="section works">
+				{% for work in works %}
+					<div class="slide fp-noscroll" id="slide{{ forloop.counter }}">
+						<div class="content">
+							<h2>{{ work.name }}{% if work.url %} <small>(<a target="_blank" href="{{ work.url }}">{{ work.url }}</a>)</small>{% endif %}</h2>
+							<p>
+								{% thumbnail work.img "x800" as im %}
+								    <img class="img-responsive" src="{{ im.url }}">
+								{% endthumbnail %}
+							</p>
+						</div>
+					</div>
+				{% endfor %}
+
+				<div class="slide" id="slide_last">
+					<div class="content">
+						<p class="text-xl">Would you like to see code?</p>
+						<p>Please visit my <a href="{{ about_me.github }}/IVikulin.com">GitHub repository</a> with sources of this website.</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="section fp-auto-height contacts">
+				<div class="content">
+					<h2>Contacts</h2>
+					<p>Cell: <a href="tel:{{ about_me.tel }}">{{ about_me.tel }}</a></p>
+					<p>Email: <a href="mailto:{{ about_me.email }}">{{ about_me.email }}</a></p>
+					<p><b><a target="_blank" href="{{ about_me.github }}">GitHub</a></b></p>
+					<p><b><a target="_blank" href="{{ about_me.linkedin }}">LinkedIn</a></b></p>
+					<p><b><a target="_blank" href="{{ about_me.facebook }}">Facebook</a></b></p>
+				</div>
+			</div>
+		</div>
+
+
+		<script type="text/javascript">
+			// Forced loader hiding after 10 sec if some errors
+			var loader_hiding = setTimeout(function(){
+				var elem = document.getElementById('preloader');
+				elem.style.display = 'none';
+			}, 10000)
+		</script>
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:400,700" rel="stylesheet" />
+		<link href="{% static 'css/bundle.css' %}?v=281116" rel="stylesheet" />
+		<script type="text/javascript" src="{% static 'js/bundle.js' %}?v=281116" async></script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+# Private settings
+djsettings/private_settings.py
+
+# Images and other uploaded files
+public/media/
+public/static/
+
+# Logs and pids of nginx, gunicorn, and etc
+logs/
+.pids/
+
+# Python
+__pycache__/
+*.py[cod]
+virtualenv
+
+# Node
+node_modules/
+
+# SSL certificates stuff
+ssl/

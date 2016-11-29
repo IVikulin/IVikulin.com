@@ -1,0 +1,36 @@
+{
+  "name": "ivikulin",
+  "version": "1.0.0",
+  "description": "The personal website",
+  "main": "jsapps/main.js",
+  "scripts": {
+    "start": "gulp default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IVikulin/IVikulin.com.git"
+  },
+  "author": "Ilya Vikulin hi@ivikulin.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IVikulin/IVikulin.com/issues"
+  },
+  "homepage": "https://github.com/IVikulin/IVikulin.com#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.5",
+    "fullpage.js": "^2.8.9",
+    "iscroll": "^5.2.0",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-svg-sprite": "^1.3.6",
+    "gulp-uglify": "^2.0.0"
+  }
+}
