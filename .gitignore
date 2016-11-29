@@ -18,4 +18,4 @@ virtualenv
 node_modules/
 
 # SSL certificates stuff
-ssl/
+configs/ssl/
