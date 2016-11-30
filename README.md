@@ -1,5 +1,5 @@
 # IVikulin.com
-This is a light and simple protfolio website, that based on Python/Django in back-end.
+This is a light and simple protfolio website, that is based on Python/Django in back-end and JS/jQuery/HTML5/SASS in front-end.
 - It is responsive and optimized, so [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=ivikulin.com) gives **99/100** for both mobile and desktop versions. 
 - The site uses a ssl certificate and supports HTTP/2. [SSL Server Test](https://www.ssllabs.com/ssltest/analyze.html?d=ivikulin.com) gives **A+** score for this site.
 
@@ -76,6 +76,7 @@ For passing Google PageSpeed Insights, I extend [pil engine](https://github.com/
 │   ├── django.log
 │   ├── gunicorn.log
 │   └── nginx.log
+├── node_modules
 ├── public
 │   ├── media
 │   └── static
