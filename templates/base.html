@@ -70,7 +70,7 @@
 		<div id="fullpage">
 			<div class="section fp-auto-height about">
 				<div class="content">
-					<h1>{{ about_me.title|safe }}</h1>
+					<div>{{ about_me.title|safe }}</div>
 					<div>{{ about_me.description|safe }}</div>
 
 					<h2>Tech Stack:</h2>
@@ -96,7 +96,7 @@
 							<h2>{{ work.name }}{% if work.url %} <small>(<a target="_blank" href="{{ work.url }}">{{ work.url }}</a>)</small>{% endif %}</h2>
 							<p>
 								{% thumbnail work.img "x800" as im %}
-								    <img class="img-responsive" src="{{ im.url }}">
+								    <img alt="{{ work.name }}" class="img-responsive" src="{{ im.url }}">
 								{% endthumbnail %}
 							</p>
 						</div>
