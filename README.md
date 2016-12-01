@@ -2,6 +2,7 @@
 This is a light and simple protfolio website, that is based on Python/Django in back-end and JS/jQuery/HTML5/SASS in front-end.
 - It is responsive and optimized, so [Google PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=ivikulin.com) gives **99/100** for both mobile and desktop versions. 
 - The site uses a ssl certificate and supports HTTP/2. [SSL Server Test](https://www.ssllabs.com/ssltest/analyze.html?d=ivikulin.com) gives **A+** score for this site.
+- It also passed the [The W3C Markup Validation Service](https://validator.w3.org/nu/?doc=https%3A%2F%2Fivikulin.com%2F) without errors.
 
 ## Sorl thumbnail image optimization
 For passing Google PageSpeed Insights, I extend [pil engine](https://github.com/IVikulin/IVikulin.com/blob/master/djsettings/pil_engine.py) by additional optimization through jpegoptim, gifsicle, optipng, etc.
